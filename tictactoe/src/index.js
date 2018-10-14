@@ -2,15 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Square extends React.Component {
-  render() {
+function Square(props){
     return (
       <button className="square"
-        onClick={() => this.props.onClick()}>
-        {this.props.value}
+        onClick={props.onClick}>
+        {props.value}
       </button>
     );
-  }
 }
 
 class Board extends React.Component {
@@ -48,7 +46,7 @@ class Board extends React.Component {
     if (winner) {
       status = "Winner:"  + winner;
     } else {
-    status = 'Next player:' + this.state.xIsNext ? "X" : "O";
+    status = 'Next player:' + (this.state.xIsNext ? 'X' : 'O');
 }
     return (
       <div>
